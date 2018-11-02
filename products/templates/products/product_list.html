@@ -7,16 +7,29 @@
 {% endblock %} 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid barok">
     <div class="row">
         <div class="Barokheading">
             <div class="hero-image">
+                <img src="../media/product_images/castle-1275465_960_720.jpg"/>
                 <div class="hero-text">
-                    <h1 style="font-size:50px">I am John Doe</h1>
-                    <p>And I'm a Photographer</p>
-                    <button>Hire me</button>
+                    <h1 style="font-size:50px">Antiekwinkel Breda</h1>
+                    <p>wonen in het heden met het verleden</p>
+                    <button onclick="scrollWin()">Bekijk</button>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<script>
+function scrollWin() {
+    window.scrollBy(0, 900);
+}
+</script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="collectietekst col-sm-12">
+        <H1>Collectie</H1>
         </div>
     </div>
 </div>
@@ -24,7 +37,7 @@
     <div class="row">
 
         {% for product in products %}
-        <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="col-xs-6 col-sm-4 col-lg-4 col-md-4">
             <a href="{% url 'product_detail' product.id %}">
                 <div class="thumbnail">
                     <img src="{{MEDIA_URL}}{{product.image}}" alt="">

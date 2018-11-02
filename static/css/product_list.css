@@ -4,14 +4,28 @@
 /*    font-family: Arial, Helvetica, sans-serif;*/
 /*}*/
 
-.barokheading {
-    padding-top: 8%;
-    height: 175vh;
+.collectietekst h1 {
+  padding-top: 10%;
+  font-size:4em;
+  text-align: center;
+  color: #0000005e;
+  /*color: #3e3f3a;*/
+  font-family: Tangerine;
+
+}
+.container-fluid {
+  padding-top: 5%;
+}
+
+
+img {
+  width: 100%;
+  background-size: cover;
 }
 
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../media/castle-1275465_960_720.jpg");
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../media/product_images/castle-1275465_960_720.jpg");*/
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
