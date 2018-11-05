@@ -4,31 +4,28 @@
 {% block head_style %} 
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/product_list.css' %}" type="text/css" /> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 {% endblock %} 
 {% block content %}
 
 <div class="container-fluid barok">
     <div class="row">
-        <div class="Barokheading">
+        <div class="Barokheading" id="Barokheading">
             <div class="hero-image">
                 <img src="../media/product_images/castle-1275465_960_720.jpg"/>
                 <div class="hero-text">
                     <h1 style="font-size:50px">Antiekwinkel Breda</h1>
-                    <p>wonen in het heden met het verleden</p>
-                    <button onclick="scrollWin()">Bekijk</button>
+                    <p>Stijl je paleis</p>
+                    <a href="#collectietekst"><button>Bekijk</button></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-function scrollWin() {
-    window.scrollBy(0, 900);
-}
-</script>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="collectietekst col-sm-12">
+        <div id="collectietekst">
         <H1>Collectie</H1>
         </div>
     </div>
@@ -41,22 +38,23 @@ function scrollWin() {
             <a href="{% url 'product_detail' product.id %}">
                 <div class="thumbnail">
                     <img src="{{MEDIA_URL}}{{product.image}}" alt="">
+                    </a>
                     <div class="caption">
                         <h4 class="pull-right">€{{product.price}}</h4>
                         <h4>{{product.name}}</h4>
-                        <p>{{product.description | linebreaksbr }}</p>
+                        <!--<p>{{product.description | linebreaksbr }}</p>-->
                         <p>{{product.brand}}</p>
-            </a>
+            
             </div>
-            <div class="ratings">
-                <p class="pull-right">{{product.reviews_received.all|length}} reviews</p>
-                <p>
-                    {% for star in product.stars %}
-                    <i class="fa fa-star"></i> {% endfor %} {% if product.needs_half_star %}
-                    <i class="fa fa-star-half"></i> {% endif %}
+            <!--<div class="ratings">-->
+            <!--    <p class="pull-right">{{product.reviews_received.all|length}} reviews</p>-->
+            <!--    <p>-->
+            <!--        {% for star in product.stars %}-->
+            <!--        <i class="fa fa-star"></i> {% endfor %} {% if product.needs_half_star %}-->
+            <!--        <i class="fa fa-star-half"></i> {% endif %}-->
 
-                </p>
-            </div>
+            <!--    </p>-->
+            <!--</div>-->
             </div>
         </div>
         {% if forloop.counter|divisibleby:3 %}
@@ -65,5 +63,48 @@ function scrollWin() {
         {% endif %} {% endfor %}
     </div>
 </div>
+<section id="float-back-to-top" class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <a href="#" id="scroll" style="display: none;">
+                            <span>
+                                <i class="fas fa-chevron-circle-up fa-3x mb-2"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+          <script>
+    // Navigation Smooth Scrolling
+    $("#Barokheading a").on('click', function (event) {
+      if (this.hash !== "") {
+        event.preventDefault();
 
+        const hash = this.hash;
+
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function () {
+
+          window.location.hash = hash;
+        });
+      }
+    });
+
+   $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $('#scroll').fadeIn();
+      } else {
+        $('#scroll').fadeOut();
+      }
+    });
+    $('#scroll').click(function () {
+      $("html, body").animate({
+        scrollTop: 0
+      }, 600);
+      return false;
+    });
+  </script>
 {% endblock content %}

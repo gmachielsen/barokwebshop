@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load bootstrap_tags %}
+{% block head_style %} 
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css" /> 
+{% endblock %} 
 {% block content %}
   <h2>Sign up</h2>
   <form method="post" enctype="multipart/form-data">

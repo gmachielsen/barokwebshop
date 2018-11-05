@@ -16,6 +16,8 @@
 
 
 {% block content %}
+<div class="checkout" style= "padding-top: 7%; padding-left: 3%; padding-right: 3%; ">
+    
     <h1>Checkout</h1>
     
     <table class="table">
@@ -34,7 +36,8 @@
         <tr>
             <td><img width="100" height="100" src="{{MEDIA_URL}}{{item.product.image}}"/></td>    
             <td>{{ item.product.name }}</td>    
-            <td>{{ item.quantity}}</td>    
+            <td>{{ item.quantity}}</td>
+            
             <td>€{{ item.product.price }}</td>
             <td>€{{ item.total}}</td>
             <td><form action="{% url 'remove_cart' %}" method="post">
@@ -78,6 +81,6 @@
     </div>
 
     </form>
-    
+   </div> 
     
 {% endblock content %}

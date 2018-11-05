@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+{% load bootstrap_tags %}
+{% block head_style %} 
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/view_cart.css' %}" type="text/css" /> 
+{% endblock %} 
 {% block content %}
 <h1>Cart</h1>
 <table class="table">
