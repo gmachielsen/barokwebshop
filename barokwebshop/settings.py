@@ -26,7 +26,8 @@ SECRET_KEY = 'p-@3#vqcb9lmlclwk!^!$)%nmd0@)mn)gv_dxfs!wio2@^2%u@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['barokwebshop-gijsmachielsen.c9users.io']
+ALLOWED_HOSTS = ['barokwebshop-gijsmachielsen.c9users.io',
+'antiekwinkelbreda.heroku.com']
 
 
 # Application definition
